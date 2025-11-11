@@ -5,7 +5,7 @@
     --secondary_font: 'Sora', sans-serif;
     /* color */
     --primary_color: #004a90;
-    --secondary_color: #011f39;
+    --secondary_color: #000d18;
     --default_color: #FFFFFF;
     --primary_text_color: #d4af37;
     --secondary_text_color: rgba(18, 24, 32, 0.40);
@@ -2872,3 +2872,4 @@ main>section ul {
     }
 
 }
+
