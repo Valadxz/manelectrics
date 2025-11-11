@@ -5,7 +5,7 @@
     --secondary_font: 'Sora', sans-serif;
     /* color */
     --primary_color: #004a90;
-    --secondary_color: #000d18;
+    --secondary_color: #042645;
     --default_color: #FFFFFF;
     --primary_text_color: #d4af37;
     --secondary_text_color: rgba(18, 24, 32, 0.40);
@@ -347,8 +347,7 @@ body .d2c_mobile_view {
 
 /* Navbar End */
 
-/* hero start */
-/* ===== HERO MODERNO MANELECTRICS ===== */
+/* ===== HERO MANELECTRICS ===== */
 .d2c_hero_bg {
     background: radial-gradient(circle at -10% -20%, rgba(0, 191, 255, 0.18), transparent 45%),
         radial-gradient(circle at 110% 10%, rgba(244, 197, 66, 0.16), transparent 40%),
@@ -492,6 +491,7 @@ body .d2c_mobile_view {
     background: linear-gradient(90deg, #00bfff, #0077ff);
     color: #fff;
     border: 0;
+    padding-bottom: 10px;
     box-shadow: 0 8px 26px rgba(0, 119, 255, .25);
 }
 
@@ -592,9 +592,18 @@ body .d2c_mobile_view {
         margin-top: 6px;
     }
 }
-
+/* Responsive: centrados y apilados en mobile */
+@media (max-width: 575.98px){
+    .hero-ctas{ justify-content: center; }
+    .hero-ctas .btn{
+      width: 100%;
+      max-width: 340px;       
+      margin-bottom: 8px;
+    }
+  }
+  
 /* hero end */
-/* ===== ABOUT MODERNO – MANELECTRICS ===== */
+/* ===== ABOUT MANELECTRICS ===== */
 .about-modern {
     position: relative;
     padding: 110px 0 80px;
@@ -861,8 +870,7 @@ body .d2c_mobile_view {
 
 /* about section end */
 
-/* partner section start */
-/* ===== PARTNERS MODERN – slider infinito ===== */
+/* ===== PARTNERS – slider infinito ===== */
 .partners-modern {
     padding: 80px 0;
     background:
@@ -952,8 +960,6 @@ body .d2c_mobile_view {
     to {
         transform: translateX(-50%);
     }
-
-    /* como duplicamos los logos, 50% cierra el loop */
 }
 
 /* Accesibilidad: respeta reduce motion */
@@ -974,7 +980,6 @@ body .d2c_mobile_view {
 }
 
 /* service section start */
-/* ====== ESTILOS SOLO PARA LA SECCIÓN DE SERVICIOS ====== */
 .d2c_service_wrapper {
     padding: clamp(48px, 6vw, 96px) 0;
     color: var(--default_color);
@@ -1035,7 +1040,6 @@ body .d2c_mobile_view {
     box-shadow: 0 16px 30px rgba(0, 74, 144, .45);
 }
 
-/* service card */
 .services-section.dark {
     background: linear-gradient(160deg, #00172b 0%, #000000 100%);
     padding: 100px 0;
@@ -1044,6 +1048,7 @@ body .d2c_mobile_view {
     overflow: hidden;
 }
 
+/* Encabezado */
 .services-header .subtitle {
     font-size: 1.1rem;
     color: #00bfff;
@@ -1071,12 +1076,15 @@ body .d2c_mobile_view {
     font-size: 1rem;
 }
 
+/* Grid: 4→2→1 */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 35px;
+    align-items: stretch;
 }
 
+/* Tarjeta */
 .service-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(0, 191, 255, 0.2);
@@ -1111,7 +1119,7 @@ body .d2c_mobile_view {
 }
 
 .service-card h4 {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: #fff;
     margin-bottom: 12px;
     font-weight: 600;
@@ -1123,6 +1131,7 @@ body .d2c_mobile_view {
     line-height: 1.6;
 }
 
+/* Hover */
 .service-card:hover {
     transform: translateY(-8px);
     border-color: #f4c542;
@@ -1138,7 +1147,7 @@ body .d2c_mobile_view {
     opacity: 1;
 }
 
-/* Animación de entrada */
+/* Animación de entrada escalonada */
 @keyframes fadeUp {
     0% {
         opacity: 0;
@@ -1152,33 +1161,51 @@ body .d2c_mobile_view {
 }
 
 .service-card:nth-child(1) {
-    animation-delay: 0.1s;
+    animation-delay: .1s;
 }
 
 .service-card:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: .2s;
 }
 
 .service-card:nth-child(3) {
-    animation-delay: 0.3s;
+    animation-delay: .3s;
 }
 
 .service-card:nth-child(4) {
-    animation-delay: 0.4s;
+    animation-delay: .4s;
 }
 
 .service-card:nth-child(5) {
-    animation-delay: 0.5s;
+    animation-delay: .5s;
 }
 
 .service-card:nth-child(6) {
-    animation-delay: 0.6s;
+    animation-delay: .6s;
+}
+
+/* —— Responsive —— */
+@media (max-width: 991px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+}
+
+@media (max-width: 575px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 35px 20px;
+    }
 }
 
 /* service section end */
 
-/* Projects section start */
-/* ==== Projects Showcase (dark, modern, electric) ==== */
+/* ==== Projects Showcase (dark, electric) ==== */
 .projects-showcase {
     background: radial-gradient(circle at 20% -20%, #003a6b 0%, rgba(0, 0, 0, 0) 35%), radial-gradient(circle at 100% 0%, rgba(0, 191, 255, 0.18) 0%, rgba(0, 0, 0, 0) 30%), #000;
     color: #fff;
@@ -1198,7 +1225,7 @@ body .d2c_mobile_view {
 .projects-showcase .desc {
     max-width: 720px;
     margin: 0 auto 60px;
-    color: #2c5493;
+    color: var(--c-accent);
     line-height: 1.7;
 }
 
@@ -1249,8 +1276,9 @@ body .d2c_mobile_view {
 .overlay h4 {
     margin: 0;
     font-size: 1.15rem;
-    color: #fff;
+    color: var(--c-primary);
     font-weight: 650;
+    text-shadow: rgba(0, 0, 0, 0.5);
 }
 
 .overlay p {
@@ -1520,7 +1548,7 @@ body .d2c_mobile_view {
 }
 
 .lb-text {
-    color: #2c5493;
+    color: var(--c-accent);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -1711,386 +1739,96 @@ body .d2c_mobile_view {
 }
 
 /* team section end */
-
-/* portfolio section start */
-.d2c_portfolio_wrapper {
-    overflow-x: hidden;
-}
-
-.d2c_portfolio_wrapper .d2c_sub_title::after {
-    left: 203px;
-}
-
-.d2c_portfolio_wrapper h2 {
-    margin-bottom: 150px;
-}
-
-.d2c_portfolio_wrapper .d2c_title::after {
-    left: 50%;
-    transform: translateX(-15%);
-}
-
-.d2c_grid {
-    column-count: 3;
-    column-gap: 0px;
-    row-gap: 0px;
-}
-
-.d2c_grid_item {
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    transform: scale(1.0);
-    filter: grayscale(100%);
-    transition: 0.4s all;
-}
-
-.d2c_grid_item:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.23);
-    filter: grayscale(0%);
-    transition: 0.4s all;
-    z-index: 999;
-}
-
-.d2c_grid_item.is-visible {
-    animation: Items .6s ease-in forwards;
-}
-
-.fancybox {
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: 0.4s all;
-    height: 460px;
-}
-
-.d2c_grid_item:nth-child(1) .fancybox {
-    background-image: url(../images/portfolio_one.jpg);
-}
-
-.d2c_grid_item:nth-child(2) .fancybox {
-    background-image: url(../images/portfolio_two.jpg);
-}
-
-.d2c_grid_item:nth-child(3) .fancybox {
-    background-image: url(../images/portfolio_three.jpg);
-}
-
-.d2c_grid_item:nth-child(4) .fancybox {
-    background-image: url(../images/portfolio_four.jpg);
-}
-
-.d2c_grid_item:nth-child(5) .fancybox {
-    background-image: url(../images/portfolio_five.jpg);
-}
-
-.d2c_grid_item:nth-child(6) .fancybox {
-    background-image: url(../images/portfolio_six.jpg);
-}
-
-/* testimonial section start */
-.d2c_testimonial_wrapper {
-    overflow-x: hidden;
-}
-
-.d2c_testimonial_wrapper h2 {
-    color: var(--secondary_color);
-}
-
-.d2c_testimonial_wrapper h3 {
-    color: var(--secondary_color);
-}
-
-.d2c_testimonial_wrapper .d2c_sub_title::after {
-    left: 50%;
-    transform: translateX(-92px);
-}
-
-.d2c_testimonial_wrapper .d2c_title::after {
-    top: 40px;
-    left: 50%;
-    transform: translateX(-72px);
-}
-
-.d2c_testimonial_wrapper .d2c_card_wrapper h5 {
-    color: var(--secondary_color);
-    font-family: var(--primary_font);
-    font-size: 38px;
-    font-weight: 600;
-    text-transform: capitalize;
-    margin-bottom: 90px;
-    position: relative;
-    padding: 0px 120px;
-}
-
-.d2c_testimonial_wrapper .d2c_card_wrapper h5::before {
-    content: url(../images/quotation_left.png);
-    position: absolute;
-    top: -60px;
-    left: 0;
-}
-
-.d2c_testimonial_wrapper .d2c_card_wrapper h5::after {
-    content: url(../images/quotation_right.png);
-    position: absolute;
-    bottom: -80px;
-    right: 0;
-}
-
-.d2c_testimonial_wrapper .d2c_card_wrapper img {
-    width: 88px;
-    height: 88px;
-    border-radius: 100%;
-    margin: 0 auto;
-}
-
-.d2c_testimonial_wrapper .d2c_card_wrapper p {
-    color: var(--secondary_color);
-}
-
-.d2c_testimonial_wrapper .slick-slide {
-    padding-top: 70px;
-}
-
-/* testimonial section end */
-
-.d2c_blog_card {
-    border: 2px solid #007bff;
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
-    transition: transform 0.3s;
-}
-
 /* contact section start */
-/* === CONTACTO MODERNO === */
-.d2c_contact_wrapper {
-    background: radial-gradient(circle at top left, #001a2f, #000);
-    color: #fff;
-    padding: 120px 0;
-    position: relative;
-    overflow: hidden;
-}
 
-.d2c_contact_wrapper::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0, 191, 255, 0.25), transparent 70%);
-    filter: blur(80px);
-}
-
-.d2c_contact_wrapper h3.d2c_sub_title {
-    color: #00bfff;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.d2c_contact_wrapper h2 {
-    color: #fff;
-    font-weight: 700;
-    font-size: 2rem;
-    margin-bottom: 50px;
-    line-height: 1.4;
-}
-
-.d2c_contact_wrapper h2 span {
-    color: #f4c542;
-}
-
-/* Formulario */
-.d2c_contact_wrapper form {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 18px;
-    box-shadow: 0 0 25px rgba(0, 191, 255, 0.15);
-}
-
-.d2c_contact_wrapper .form-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #2c5493;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
-}
-
-.d2c_contact_wrapper .form-label span {
-    color: #00bfff;
-}
-
-.d2c_contact_wrapper .form-control {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border-radius: 12px;
-    padding: 12px 16px;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-    width: 100%;
-}
-
-.d2c_contact_wrapper .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.d2c_contact_wrapper .form-control:focus {
-    border-color: #00bfff;
-    box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
-    outline: none;
-    background: rgba(255, 255, 255, 0.07);
-}
-
-.d2c_contact_wrapper textarea.form-control {
-    resize: none;
-    min-height: 150px;
-}
-
-/* Botón */
-.d2c_contact_wrapper .btn {
-    display: inline-block;
-    background: linear-gradient(90deg, #00bfff, #0077ff);
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1rem;
-    padding: 14px 38px;
-    border-radius: 50px;
-    transition: all 0.4s ease;
-    margin-top: 20px;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-}
-
-.d2c_contact_wrapper .btn::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    transition: all 0.5s ease;
-}
-
-.d2c_contact_wrapper .btn:hover::after {
-    left: 100%;
-}
-
-.d2c_contact_wrapper .btn:hover {
-    background: linear-gradient(90deg, #00bfff, #f4c542);
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Inputs alineados */
-.d2c_contact_wrapper .row {
-    row-gap: 25px;
-}
-
-@media (max-width: 768px) {
-    .d2c_contact_wrapper form {
-        padding: 30px 25px;
-    }
-}
-
-/* === EFECTO DE ENVÍO ELÉCTRICO === */
-.d2c_contact_wrapper .btn.sending {
-    position: relative;
-    pointer-events: none;
-    background: linear-gradient(90deg, #00bfff, #0077ff);
-    box-shadow: 0 0 20px rgba(0, 191, 255, 0.4), 0 0 40px rgba(0, 191, 255, 0.25);
-    animation: pulse-electric 0.8s infinite;
-}
-
-@keyframes pulse-electric {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(0, 191, 255, 0.3), 0 0 50px rgba(0, 191, 255, 0.2);
-    }
-
-    50% {
-        box-shadow: 0 0 30px rgba(0, 191, 255, 0.6), 0 0 70px rgba(0, 191, 255, 0.4);
-    }
-}
-
-.d2c_contact_wrapper .btn.sent {
-    background: linear-gradient(90deg, #00bfff, #00ff88);
-    box-shadow: 0 0 25px rgba(0, 255, 180, 0.4);
-    transition: all 0.3s ease;
-}
-
-.d2c_contact_wrapper .btn.sent::after {
-    content: "✔ Enviado";
-    color: #fff;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-/* === MENSAJE FLOTANTE === */
-.contact-alert {
+/* Toast en TOP (antes estaba abajo) */
+#toast-root {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: rgba(0, 191, 255, 0.1);
-    border: 1px solid rgba(0, 191, 255, 0.4);
-    color: #fff;
-    padding: 14px 22px;
-    border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
-    backdrop-filter: blur(8px);
-    font-size: 0.95rem;
-    animation: fadeInAlert 0.4s ease;
+    top: 20px;
+    /* ← arriba */
+    right: 20px;
+    left: auto;
+    bottom: auto;
+    /* ← elimina bottom */
+    display: grid;
+    gap: 12px;
     z-index: 9999;
+    pointer-events: none;
 }
 
-.contact-alert.hide {
-    animation: fadeOutAlert 0.4s ease forwards;
+@media (max-width: 576px) {
+    #toast-root {
+        right: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
-@keyframes fadeInAlert {
+.contact-toast {
+    pointer-events: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(20, 24, 32, .92);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+    backdrop-filter: blur(6px);
+    animation: toast-in .2s ease both;
+}
+
+.theme-light .contact-toast {
+    background: rgba(255, 255, 255, .98);
+    color: #0c1018;
+    border: 1px solid rgba(0, 0, 0, .12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+}
+
+.contact-toast.hide {
+    animation: toast-out .25s ease forwards;
+}
+
+@keyframes toast-in {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-6px)
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
     }
 }
 
-@keyframes fadeOutAlert {
+@keyframes toast-out {
     from {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)
     }
 
     to {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-6px)
     }
 }
+
+.toast-close {
+    margin-left: 8px;
+    border: 0;
+    background: transparent;
+    color: currentColor;
+    font-size: 18px;
+    opacity: .7;
+    cursor: pointer;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+
 
 /* contact section end */
 .d2c_card_body {
@@ -2436,7 +2174,6 @@ textarea {
 
 /* Scroll Button End */
 
-
 /* Botón de whatsapp */
 /* ===== WhatsApp Floating Widget – Manelectrics ===== */
 
@@ -2691,11 +2428,6 @@ main>section ul {
     color: var(--primary_text_color);
 }
 
-/* Slightly soften blog card shadow */
-.d2c_blog_card {
-    box-shadow: 0 6px 14px rgba(0, 123, 255, 0.16);
-}
-
 /* Better contrast for footer links */
 .d2c_footer_wrapper li a {
     list-style: none;
@@ -2763,44 +2495,282 @@ main>section ul {
     pointer-events: none;
 }
 
+/* === EFECTO DE ENVÍO ELÉCTRICO (LIMPIO) === */
+.d2c_contact_wrapper .btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00bfff, #0077ff);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 38px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Brillo deslizante SOLO en estado normal/hover */
+.d2c_contact_wrapper .btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transition: left 0.5s ease;
+}
+
+.d2c_contact_wrapper .btn:hover::after {
+    left: 100%;
+}
+
+/* Estado ENVIANDO (sin overlays que tapen el texto) */
+.d2c_contact_wrapper .btn.sending {
+    pointer-events: none;
+    opacity: .9;
+}
+
+/* Apaga el brillo deslizante mientras envía */
+.d2c_contact_wrapper .btn.sending::after {
+    display: none;
+}
+
+/* Pulso sutil de fondo mientras envía (sin cubrir texto) */
+@keyframes pulseSending {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(0, 191, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 18px rgba(0, 191, 255, .35);
+    }
+}
+
+.d2c_contact_wrapper .btn.sending {
+    animation: pulseSending 1s ease-in-out infinite;
+}
+
+/* Estado ENVIADO (una sola definición) */
+.d2c_contact_wrapper .btn.sent {
+    background: linear-gradient(90deg, #00bfff, #00ff88);
+    box-shadow: 0 0 25px rgba(0, 255, 180, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Apaga el brillo deslizante si ya envió */
+.d2c_contact_wrapper .btn.sent::after {
+    display: none;
+}
+
+/* Flash de confirmación (no usa ::after con texto) */
+@keyframes sentFlash {
+    0% {
+        box-shadow: 0 0 0 rgba(0, 191, 255, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 26px rgba(0, 191, 255, .55);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(0, 191, 255, 0);
+    }
+}
+
+.d2c_contact_wrapper .btn.sent {
+    animation: sentFlash .6s ease;
+}
+
+/* === MENSAJE FLOTANTE (sin cambios) === */
+.contact-alert {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 191, 255, 0.1);
+    border: 1px solid rgba(0, 191, 255, 0.4);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.25);
+    backdrop-filter: blur(8px);
+    font-size: 0.95rem;
+    animation: fadeInAlert 0.4s ease;
+    z-index: 9999;
+}
+
+.contact-alert.hide {
+    animation: fadeOutAlert 0.4s ease forwards;
+}
+
+@keyframes fadeInAlert {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fadeOutAlert {
+    from {
+        opacity: 1;
+        transform: translateY(0)
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+}
+
+/* === CONTACTO === */
+.d2c_contact_wrapper {
+    background: radial-gradient(circle at top left, #001a2f, #000);
+    color: #fff;
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.d2c_contact_wrapper::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.25), transparent 70%);
+    filter: blur(80px);
+}
+
+.d2c_contact_wrapper h3.d2c_sub_title {
+    color: #00bfff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.d2c_contact_wrapper h2 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    line-height: 1.4;
+}
+
+.d2c_contact_wrapper h2 span {
+    color: #f4c542;
+}
+
+/* Formulario */
+.d2c_contact_wrapper form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 0 25px rgba(0, 191, 255, 0.15);
+}
+
+.d2c_contact_wrapper .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c5493;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.d2c_contact_wrapper .form-label span {
+    color: #00bfff;
+}
+
+.d2c_contact_wrapper .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.d2c_contact_wrapper .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.d2c_contact_wrapper .form-control:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
+    outline: none;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.d2c_contact_wrapper textarea.form-control {
+    resize: none;
+    min-height: 150px;
+}
+
+.d2c_contact_wrapper .row {
+    row-gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .d2c_contact_wrapper form {
+        padding: 30px 25px;
+    }
+}
+
 /* Paleta clara base */
 /* ==================== THEME LIGHT – NATURAL LEGIBLE ==================== */
 /* ===================== GLOW ILUMINADO – MODO CLARO ===================== */
 /* Efecto brillante más fuerte, estilo “contenido iluminado” */
 .theme-light {
-    --glow-brand: rgba(0,119,255,.45); /* azul eléctrico más intenso */
-    --glow-accent: rgba(244,197,66,.45); /* dorado brillante */
-    --glow-txt: rgba(0,119,255,.6);
-    --glow-soft: rgba(0,0,0,.05);
-  }
-  
-  /* ===== TEXTOS ILUMINADOS ===== */
-  .theme-light :is(h1,h2,h3,.hero-title,.ttl,.title,.d2c_sub_title) {
+    --glow-brand: rgba(0, 119, 255, .45);
+    /* azul eléctrico más intenso */
+    --glow-accent: rgba(244, 197, 66, .45);
+    /* dorado brillante */
+    --glow-txt: rgba(0, 119, 255, .6);
+    --glow-soft: rgba(0, 0, 0, .05);
+}
+
+/* ===== TEXTOS ILUMINADOS ===== */
+.theme-light :is(h1, h2, h3, .hero-title, .ttl, .title, .d2c_sub_title) {
     text-shadow:
-      0 0 10px var(--glow-brand),
-      0 0 25px var(--glow-accent),
-      0 0 40px rgba(255,255,255,.6);
+        0 0 10px var(--glow-brand),
+        0 0 25px var(--glow-accent),
+        0 0 40px rgba(255, 255, 255, .6);
     transition: text-shadow .5s ease;
-  }
-  
-  /* Subtítulos, párrafos y texto secundario */
-  .theme-light :is(.hero-subtitle,.lead,p,li,small,span) {
+}
+
+/* Subtítulos, párrafos y texto secundario */
+.theme-light :is(.hero-subtitle, .lead, p, li, small, span) {
     text-shadow:
-      0 0 6px rgba(0,119,255,.25),
-      0 0 18px rgba(244,197,66,.15);
-  }
-  
-  /* Enlaces del menú y chips */
-  .theme-light .d2c_navbar .nav-link,
-  .theme-light .hero-chips li {
+        0 0 6px rgba(0, 119, 255, .25),
+        0 0 18px rgba(244, 197, 66, .15);
+}
+
+/* Enlaces del menú y chips */
+.theme-light .d2c_navbar .nav-link,
+.theme-light .hero-chips li {
     text-shadow:
-      0 0 8px rgba(0,119,255,.35),
-      0 0 14px rgba(244,197,66,.25);
-  }
-  
-  /* ===== CONTENEDORES CON LUZ EXTERIOR ===== */
-  .theme-light :is(
-    .info-card,
+        0 0 8px rgba(0, 119, 255, .35),
+        0 0 14px rgba(244, 197, 66, .25);
+}
+
+/* ===== CONTENEDORES CON LUZ EXTERIOR ===== */
+.theme-light :is(.info-card,
     .d2c_card_wrapper,
     .partner-card,
     .project,
@@ -2811,93 +2781,93 @@ main>section ul {
     .hero-image-frame,
     .image-frame,
     .service-card,
-    .nav-item
-  ) {
+) {
     box-shadow:
-      0 0 25px rgba(0,119,255,.35),
-      0 0 55px rgba(244,197,66,.35),
-      0 8px 24px rgba(0,0,0,.05);
+        0 0 25px rgba(0, 119, 255, .35),
+        0 0 55px rgba(244, 197, 66, .35),
+        0 8px 24px rgba(0, 0, 0, .05);
     transition: box-shadow .6s ease;
-  }
-  
-  /* Al pasar el mouse aumenta el brillo */
-  .theme-light :is(.info-card,.d2c_card_wrapper,.partner-card,.project,
-                   .about-gallery .img,.d2c_contact_wrapper form,
-                   .hero-image-frame,.image-frame):hover {
+}
+
+/* Al pasar el mouse aumenta el brillo */
+.theme-light :is(.info-card, .d2c_card_wrapper, .partner-card, .project,
+    .about-gallery .img, .d2c_contact_wrapper form,
+    .hero-image-frame, .image-frame):hover {
     box-shadow:
-      0 0 35px rgba(0,119,255,.55),
-      0 0 70px rgba(244,197,66,.45),
-      0 12px 28px rgba(0,0,0,.08);
-  }
-  
-  /* ===== BOTONES RESPLANDECIENTES ===== */
-  .theme-light :is(.btn,.btn-hero,.btn-hero-secondary,.about-primary,.about-secondary) {
+        0 0 35px rgba(0, 119, 255, .55),
+        0 0 70px rgba(244, 197, 66, .45),
+        0 12px 28px rgba(0, 0, 0, .08);
+}
+
+/* ===== BOTONES RESPLANDECIENTES ===== */
+.theme-light :is(.btn, .btn-hero, .btn-hero-secondary, .about-primary, .about-secondary) {
     box-shadow:
-      0 0 25px rgba(0,119,255,.45),
-      0 0 60px rgba(244,197,66,.45),
-      0 8px 18px rgba(0,0,0,.05);
+        0 0 25px rgba(0, 119, 255, .45),
+        0 0 60px rgba(244, 197, 66, .45),
+        0 8px 18px rgba(0, 0, 0, .05);
     transition: box-shadow .4s ease;
-  }
-  .theme-light :is(.btn,.btn-hero,.btn-hero-secondary,.about-primary,.about-secondary):hover {
+}
+
+.theme-light :is(.btn, .btn-hero, .btn-hero-secondary, .about-primary, .about-secondary):hover {
     box-shadow:
-      0 0 45px rgba(0,119,255,.65),
-      0 0 85px rgba(244,197,66,.55),
-      0 12px 28px rgba(0,0,0,.08);
-  }
-  
-  /* ===== NAVBAR Y ELEMENTOS GENERALES ===== */
-  .theme-light .d2c_navbar,
-  .theme-light .d2c_navbar .navbar-collapse {
+        0 0 45px rgba(0, 119, 255, .65),
+        0 0 85px rgba(244, 197, 66, .55),
+        0 12px 28px rgba(0, 0, 0, .08);
+}
+
+/* ===== NAVBAR Y ELEMENTOS GENERALES ===== */
+.theme-light .d2c_navbar,
+.theme-light .d2c_navbar .navbar-collapse {
     box-shadow:
-      0 0 30px rgba(0,119,255,.35),
-      0 0 60px rgba(244,197,66,.35);
-  }
-  
-  /* ===== IMÁGENES HERO Y DESTACADAS ===== */
-  .theme-light .hero-image-frame img,
-  .theme-light .project img,
-  .theme-light .about-gallery img {
+        0 0 30px rgba(0, 119, 255, .35),
+        0 0 60px rgba(244, 197, 66, .35);
+}
+
+/* ===== IMÁGENES HERO Y DESTACADAS ===== */
+.theme-light .hero-image-frame img,
+.theme-light .project img,
+.theme-light .about-gallery img {
     filter: brightness(1.05) contrast(1.1) saturate(1.2);
     transition: filter .4s ease;
-  }
-  .theme-light .hero-image-frame:hover img,
-  .theme-light .about-gallery .img:hover img,
-  .theme-light .project:hover img {
+}
+
+.theme-light .hero-image-frame:hover img,
+.theme-light .about-gallery .img:hover img,
+.theme-light .project:hover img {
     filter: brightness(1.2) contrast(1.2) saturate(1.3);
-  }
-  
-  /* ===== PROYECTOS: halo visible sobre overlay ===== */
-  .theme-light .projects-showcase .overlay {
+}
+
+/* ===== PROYECTOS: halo visible sobre overlay ===== */
+.theme-light .projects-showcase .overlay {
     box-shadow:
-      inset 0 -10px 25px rgba(0,0,0,.25),
-      0 0 35px rgba(0,119,255,.5),
-      0 0 65px rgba(244,197,66,.35);
-  }
-  
-  /* ===== FORMULARIOS Y CAMPOS ===== */
-  .theme-light .form-control {
+        inset 0 -10px 25px rgba(0, 0, 0, .25),
+        0 0 35px rgba(0, 119, 255, .5),
+        0 0 65px rgba(244, 197, 66, .35);
+}
+
+/* ===== FORMULARIOS Y CAMPOS ===== */
+.theme-light .form-control {
     box-shadow:
-      0 0 15px rgba(0,119,255,.2),
-      inset 0 0 8px rgba(255,255,255,.6);
-  }
-  .theme-light .form-control:focus {
+        0 0 15px rgba(0, 119, 255, .2),
+        inset 0 0 8px rgba(255, 255, 255, .6);
+}
+
+.theme-light .form-control:focus {
     box-shadow:
-      0 0 25px rgba(0,119,255,.45),
-      0 0 55px rgba(244,197,66,.3),
-      inset 0 0 8px rgba(255,255,255,.6);
-  }
-  
-  /* ===== UTILIDAD ===== */
-  .no-glow {
+        0 0 25px rgba(0, 119, 255, .45),
+        0 0 55px rgba(244, 197, 66, .3),
+        inset 0 0 8px rgba(255, 255, 255, .6);
+}
+
+/* ===== UTILIDAD ===== */
+.no-glow {
     text-shadow: none !important;
     box-shadow: none !important;
-  }
-  
-  /* ==== Accesibilidad ==== */
-  @media (prefers-reduced-motion: reduce) {
+}
+
+/* ==== Accesibilidad ==== */
+@media (prefers-reduced-motion: reduce) {
     .theme-light * {
-      transition: none !important;
+        transition: none !important;
     }
-  }
-  
-  
+}
